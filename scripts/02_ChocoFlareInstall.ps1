@@ -8,18 +8,18 @@ choco install python --version 2.7.13 --allow-empty-checksums --source $flare --
 
 choco pin add -n=python --version 2.7.13
 
-choco install vcpython27            
+choco install vcpython27 --confirm
 
 if(Get-OSArchitectureWidth -Compare 64) {
-    cinst python2.nopath -s $flare --x86 --package-parameters '/InstallDir:"C:\Program Files (x86)\Python27"'
+    cinst python2.nopath -s $flare --x86 --package-parameters '/InstallDir:"C:\Program Files (x86)\Python27"' --confirm
 }
 
 # Python Modules
-choco install hexdump pefile winappdbg pycrypto cryptography oletools -source python  --allow-empty-checksums --confirm
+choco install hexdump pefile winappdbg pycrypto cryptography oletools --source python --allow-empty-checksums --confirm
 
 
 #Cryptography for humans
-choco install https://github.com/williballenthin/vivisect/zipball/master     -source python --allow-empty-checksums --confirm
+choco install https://github.com/williballenthin/vivisect/zipball/master --source python --allow-empty-checksums --confirm
 
 # Python Tools
 choco install fakenet-ng.python floss.python --allow-empty-checksums --source $flare --confirm
